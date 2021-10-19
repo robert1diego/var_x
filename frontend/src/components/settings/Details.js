@@ -131,4 +131,4 @@ export default function Details() {
             </Grid>
         </Grid>
     )
-}
+} 

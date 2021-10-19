@@ -64,6 +64,6 @@ export default function Slots(slot, setSlot) {
         ))}
         </Grid>
     )
-}
+} 
 
 

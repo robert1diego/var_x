@@ -90,7 +90,7 @@ export default function AuthPortal() {
                 console.error(error)
                 dispatchFeedback(
                     setSnackbar({
-                        status: "error", message: "Entrar con Facebook error,por favor intenta de nuevo"
+                        status: "error", message: "Conectar con Facebook error,por favor intenta de nuevo"
                     }))
             })
         }
