@@ -160,7 +160,7 @@ export default function Login({
     const handleForgot = () => {
         setLoading(true)
 
-        axios.post(process.env.GATSBY_STRAPI_URL = "/auth/forgot-password", {
+        axios.post(process.env.GATSBY_STRAPI_URL + "/auth/forgot-password", {
             email: values.email
         }).then(response => {
             setLoading(false)

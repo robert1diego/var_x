@@ -84,10 +84,7 @@ export default function ProductFrameList({
           <Grid
             item key={image.url}
             component={Link}
-            to={
-          `/${product.node.category.name.toLowerCase()}
-          /${product.node.name.split(" ")[0].toLowerCase()}
-          ${hasStyles ? `?style=${variant.style}` : ""}`} 
+            to={`/${product.node.category.name.toLowerCase()}/${product.node.name.split(" ")[0].toLowerCase()}${hasStyles ? `?style=${variant.style}` : ""}`} 
           >
             <img src={process.env.GATSBY_STRAPI_URL + image.url}
               alt={image.url} className={classes.productImage} />
@@ -105,10 +102,7 @@ export default function ProductFrameList({
       >
         <Grid item container direction="column" 
         component={Link}
-        to={
-        `/${product.node.category.name.toLowerCase()}
-        /${product.node.name.split('')[0].toLowerCase()}
-        ${hasStyles ? `?style=${variant.style}` : ""}`}
+        to={`/${product.node.category.name.toLowerCase()}/${product.node.name.split('')[0].toLowerCase()}${hasStyles ? `?style=${variant.style}` : ""}`}
         >
           <Grid item>
             <Typography variant="h4">

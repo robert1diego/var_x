@@ -37,8 +37,8 @@ const useStyles = makeStyles(theme => ({
         }
     },
     slotContainer: {
-    position: "absolute",
-    bottom: 0
+        position: "absolute",
+        bottom: 0
     },
     detailsContainer: {
         position: "relative"
@@ -59,7 +59,7 @@ export default function Details() {
     const [visible, setVisible] = useState(false)
     const [values, setValues] = useState({ name: "", phone: "", email: "", password: "", })
     const [errors, setErrors] = useState({})
-    const [slot,setSlot] = useState(0)
+    const [slot, setSlot] = useState(0)
 
     const email_password = EmailPassword(
         classes,
@@ -89,22 +89,19 @@ export default function Details() {
     const fields = [name_phone, email_password]
 
     return (
-        <Grid 
-        item 
-        container 
-        direction="column" 
-        xs={6} 
-        alignItems="center"
-        justify="center"
-        classes={{root:classes.detailsContainer}}
+        <Grid
+            item
+            container
+            direction="column"
+            xs={6}
+            alignItems="center"
+            justify="center"
+            classes={{ root: classes.detailsContainer }}
         >
-        <Grid 
-        item>
-        <img src={fingerprint} 
-        alt="details settings"
-        className={classes.icon}
-        />
-        </Grid>
+            <Grid
+                item>
+                <img src={fingerprint} alt="details settings" className={classes.icon} />
+            </Grid>
             {fields.map((pair, i) => (
                 <Grid
                     container
@@ -122,13 +119,13 @@ export default function Details() {
                     />
                 </Grid>
             ))}
-            <Grid 
-            item 
-            container
-            classes={{root:classes.slotContainer}}
+            <Grid
+                item
+                container
+                classes={{ root: classes.slotContainer }}
             >
-             <Slots slot={slot} setSlot={setSlot} />
+                <Slots slot={slot} setSlot={setSlot} />
             </Grid>
         </Grid>
     )
-} 
+}

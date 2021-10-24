@@ -77,12 +77,8 @@ export default function Header({ categories }) {
     window.location.pathname.split('/')[1] : null
 
     const found = routes.indexOf(
-      routes.filter(
-        ({ node: { name, link } }) =>
-        (link || `/${name.toLowerCase()}`) === 
-         `/${pathname}`)
-      [0]
-      )
+      routes.filter(({ node: { name, link } }) => (link || `/${name.toLowerCase()}`) === `/${pathname}`)[0]
+    )
 
       return found === -1 ? false : found
   }
@@ -130,8 +126,7 @@ export default function Header({ categories }) {
           <ListItem
             selected={activeIndex() === i}
             component={Link}
-            to={route.node.link ||
-              `/${route.node.name.toLowerCase()}`}
+            to={route.node.link || `/${route.node.name.toLowerCase()}`}
             divider button key={route.node.strapiId} >
             <ListItemText
               classes={{ primary: classes.listItemText }}

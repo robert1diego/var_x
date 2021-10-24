@@ -62,11 +62,11 @@ export default function QtyButton({ stock, selectedVariant }) {
     const handleChange = direction => {
         if (qty === stock[selectedVariant].qty && direction === "up") {
             return null
-        }
-
-        if (qty === 1 && direction === "down") {
+          }
+      
+          if (qty === 1 && direction === "down") {
             return null
-        }
+          }
         const newQty = direction === "up" ? qty + 1 : qty - 1
 
         setQty(newQty)

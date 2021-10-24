@@ -4,9 +4,9 @@ import Pagination from '@material-ui/lab/Pagination'
 import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core/styles'
 import { graphql } from 'gatsby'
-import {useQuery} from '@apollo/client'
 
-import {GET_DETAILS} from '../apollo/queries'
+
+
 
 import Layout from '../components/ui/layout'
 import DynamicToolbar from '../components/product-list/DynamicToolbar'
@@ -101,6 +101,7 @@ export default function ProductList({
   var isFiltered = false
   var filters = {}
   var filteredProducts = []
+
 
 
 

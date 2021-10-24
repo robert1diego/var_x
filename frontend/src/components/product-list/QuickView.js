@@ -12,7 +12,7 @@ import Rating from '../home/Rating'
 import Sizes from './Sizes'
 import Swatches from './Swatches'
 import QtyButton from './QtyButton'
-import {getStockDisplay} from '../product-detail/ProductInfo'
+import { getStockDisplay } from '../product-detail/ProductInfo'
 
 import frame from '../../images/selected-frame.svg'
 import explore from '../../images/explore.svg'
@@ -85,16 +85,16 @@ export default function QuickView({
     open, setOpen, url, name,
     price, product, variant, sizes, colors,
     selectedSize, selectedColor,
-    setSelectedSize, setSelectedColor,hasStyles,stock,imageIndex
+    setSelectedSize, setSelectedColor, hasStyles, stock, imageIndex
 }) {
     const classes = useStyles()
 
-    const selectedVariant = imageIndex === -1 ? 
-    product.node.variants.indexOf(variant):imageIndex
+    const selectedVariant = imageIndex === -1 ?
+        product.node.variants.indexOf(variant) : imageIndex
 
     const stockDisplay = getStockDisplay(stock, selectedVariant)
 
-    
+
 
 
     return (
@@ -105,10 +105,7 @@ export default function QuickView({
             <DialogContent classes={{ root: classes.selectedFrame }} >
                 <Grid container direction="column" alignItems="center">
                     <Grid item component={Link}
-                        to={
-                            `/${product.node.category.name.toLowerCase()}
-                  /${product.node.name.split(" ")[0].toLowerCase()}
-                   ${hasStyles ? `?style=${variant.style}` : ""}`}
+                        to={`/${product.node.category.name.toLowerCase()}/${product.node.name.split(" ")[0].toLowerCase()}${hasStyles ? `?style=${variant.style}` : ""}`}
                     >
                         <img
                             src={url}
@@ -124,10 +121,7 @@ export default function QuickView({
                                 justify="space-between"
                                 classes={{ root: classes.infoContainer }}
                                 component={Link}
-                                to={
-                                    `/${product.node.category.name.toLowerCase()}
-                                    /${product.node.name.split(" ")[0].toLowerCase()}
-                                    ${hasStyles ? `?style=${variant.style}` : ""}`}
+                                to={`/${product.node.category.name.toLowerCase()}/${product.node.name.split(" ")[0].toLowerCase()}${hasStyles ? `?style=${variant.style}` : ""}`}
                             >
                                 <Grid item>
                                     <Typography variant="h4">
@@ -165,7 +159,7 @@ export default function QuickView({
                                     colors={colors}
                                 />
                                 <span className={classes.qtyContainer} >
-                                    <QtyButton stock={stock} selectedVariant={selectedVariant}/>
+                                    <QtyButton stock={stock} selectedVariant={selectedVariant} />
                                 </span>
 
                             </Grid>

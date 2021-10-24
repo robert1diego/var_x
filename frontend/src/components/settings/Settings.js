@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-export default function Settings({setSelectedSetting}) {
+export default function Settings({ setSelectedSetting }) {
 
     const classes = useStyles()
 
@@ -36,4 +36,4 @@ export default function Settings({setSelectedSetting}) {
             </Grid>
         </>
     )
-} 
+}

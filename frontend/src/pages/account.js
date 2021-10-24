@@ -1,6 +1,4 @@
 import React, { useContext } from "react"
-
-
 import { UserContext } from "../contexts"
 import { setUser } from '../contexts/actions'
 

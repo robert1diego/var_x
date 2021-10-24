@@ -132,7 +132,7 @@ export default function FeaturedProducts() {
 
         const alignment = matchesMD ? "center" :
           i === 0 || i === 3 ? "flex-start" :
-            i === 1 || i === 4 ? "center" : "flex-end"
+          i === 1 || i === 4 ? "center" : "flex-end"
 
 
         return (
