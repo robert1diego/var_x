@@ -6,7 +6,7 @@ import IconButton from "@material-ui/core/IconButton"
 import CircularProgress from "@material-ui/core/CircularProgress"
 import { makeStyles } from "@material-ui/core/styles"
 
-//import Confirmation from "./Confirmation"
+import Confirmation from "./Confirmation"
 
 import { FeedbackContext } from "../../contexts"
 import { setSnackbar, setUser } from "../../contexts/actions"
@@ -52,7 +52,7 @@ export default function Edit({
       dispatchFeedback(
         setSnackbar({
           status: "error",
-          message: "All fields must be valid before saving.",
+          message: "Todos los campos tienen que estar validos antes de guardar",
         })
       )
       return
@@ -68,17 +68,16 @@ export default function Edit({
     if (edit && changesMade) {
       setLoading(true)
 
-      axios
-        .post(
-          process.env.GATSBY_STRAPI_URL + "/users-permissions/set-settings",
-          {
-            details: newDetails,
-            detailSlot,
-            location: locations,
-            locationSlot,
-          },
-          { headers: { Authorization: `Bearer ${user.jwt}` } }
-        )
+      axios.post(
+        process.env.GATSBY_STRAPI_URL + "/users-permissions/set-settings",
+        {
+          details: newDetails,
+          detailSlot,
+          location: locations,
+          locationSlot,
+        },
+        { headers: { Authorization: `Bearer ${user.jwt}` } }
+      )
         .then(response => {
           setLoading(false)
           dispatchFeedback(
@@ -135,13 +134,13 @@ export default function Edit({
           </IconButton>
         )}
       </Grid>
-      {/*  <Confirmation
+      <Confirmation
         dialogOpen={dialogOpen}
         setDialogOpen={setDialogOpen}
         user={user}
         dispatchFeedback={dispatchFeedback}
         setSnackbar={setSnackbar}
-      /> */}
+      />
     </Grid>
   )
 }

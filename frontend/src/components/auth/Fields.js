@@ -9,14 +9,14 @@ import validate from '../ui/validate'
 
 const useStyles = makeStyles(theme => ({
     textField: {
-        width: '20rem',
+        width: ({ fullWidth, settings }) => (fullWidth ? undefined : settings ? '15rem' : '20rem'),
         [theme.breakpoints.down('xs')]: {
-            width: '15rem',
+            width: ({ fullWidth }) => fullWidth ? undefined : '15rem',
         }
     },
     input: {
         color: ({ isWhite }) => isWhite ?
-        "#fff" : theme.palette.secondary.main
+            "#fff" : theme.palette.secondary.main
     },
 }))
 
@@ -26,10 +26,13 @@ export default function Fields({
     setErrors,
     values,
     setValues,
-    isWhite
+    isWhite,
+    disabled,
+    fullWidth,
+    settings
 }) {
 
-    const classes = useStyles({ isWhite })
+    const classes = useStyles({ isWhite, fullWidth, settings })
 
     return (
         Object.keys(fields).map(field => {
@@ -58,6 +61,8 @@ export default function Fields({
                         helperText={errors[field] && fields[field].helperText}
                         placeholder={fields[field].placeholder}
                         type={fields[field].type}
+                        disabled={disabled}
+                        fullWidth={fullWidth}
                         InputProps={{
                             startAdornment: (
                                 <InputAdornment position="start">

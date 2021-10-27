@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-export default function Slots(slot, setSlot) {
+export default function Slots({ slot, setSlot }) {
 
     const classes = useStyles()
 

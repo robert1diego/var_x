@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
         borderRadius: 50,
         textTransform: 'none',
         marginBottom: '4rem',
-        [theme.breakpoints.down('xs')]:{
+        [theme.breakpoints.down('xs')]: {
             width: '15rem',
         }
     },
@@ -27,8 +27,8 @@ const useStyles = makeStyles(theme => ({
         marginTop: '2rem'
     },
     buttonText: {
-        [theme.breakpoints.down('xs')]:{
-            fontSize:'1.5rem'
+        [theme.breakpoints.down('xs')]: {
+            fontSize: '1.5rem'
         }
     }
 }))
@@ -42,7 +42,7 @@ export default function Reset({ steps, setSelectedStep, dispatchFeedback }) {
     const [loading, setLoading] = useState(false)
     const [success, setSuccess] = useState(false)
 
-    const { password } = EmailPassword(classes, true, false, visible, setVisible)
+    const { password } = EmailPassword(true, false, visible, setVisible)
     const fields = {
         password,
         confirmation: { ...password, placeholder: "Confirmar Contraseña" }
@@ -62,7 +62,7 @@ export default function Reset({ steps, setSelectedStep, dispatchFeedback }) {
 
             dispatchFeedback(setSnackbar({ status: "succes", message: "Contraseña restablecida con exito" }))
 
-           
+
         }).catch(error => {
             setLoading(false)
 
@@ -78,18 +78,18 @@ export default function Reset({ steps, setSelectedStep, dispatchFeedback }) {
         values.password !== values.confirmation
 
     useEffect(() => {
-      if (!success) return
-      
-     const timer =  setTimeout(() => {
-        window.history.replaceState(null, null, window.location.pathname)
+        if (!success) return
 
-        const login = steps.find(step => step.label === "Login")
-        setSelectedStep(steps.indexOf(login))
-    }, 6000)
+        const timer = setTimeout(() => {
+            window.history.replaceState(null, null, window.location.pathname)
 
-    return () => clearTimeout(timer)
-      
-    },[success])
+            const login = steps.find(step => step.label === "Login")
+            setSelectedStep(steps.indexOf(login))
+        }, 6000)
+
+        return () => clearTimeout(timer)
+
+    }, [success])
 
     return (
         <>
@@ -112,7 +112,7 @@ export default function Reset({ steps, setSelectedStep, dispatchFeedback }) {
                     disabled={disabled}
                 >
                     {loading ? <CircularProgress /> : (
-                        <Typography variant="h5" classes={{ root: classes.buttonText}}>
+                        <Typography variant="h5" classes={{ root: classes.buttonText }}>
                             reset contraseña
                         </Typography>
                     )}
